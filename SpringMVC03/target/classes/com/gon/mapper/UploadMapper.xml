@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gon.mapper.UploadMapper">
+
+  	
+  	<select id="getList" resultType="fileVO">
+  		select * from dbtable.t_user
+  	</select>
+  	
+  	<insert id="insert" parameterType="fileVO" >  		
+		INSERT INTO dbtable.t_user(id, pwd, "name", "level", "desc", reg_date)
+		VALUES(#{id},#{pwd},#{name},#{level},#{desc}, now())
+  	</insert>
+  	
+  	<select id="read" parameterType="String" resultType="fileVO">
+  		select * from dbtable.t_user where id = #{id}
+  	</select>
+  	
+  	
+</mapper>
